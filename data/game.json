@@ -1,0 +1,32 @@
+{
+    "start_state" : "start",
+
+    "states" : 
+    {
+        "start" : 
+        {
+            "text" : "You finally come accross the one and only Quickdraw Cassidy... <br> Back in his day Cassidy has won every standoff and avoided the law for the past 10 years... <br> Nowadyas he spends his days hiding his identity at saloons and drink his sorrows away. The look in his eyes tell you that he know why you're here, but he isn't resisting, he simply finishes his whiskey. <br> Do you take em in? <br> A = YES B = NO",
+            "next_state" : [
+                                {
+                                    "state_name": "take_em_stim",
+                                    "key_input" : "A"
+                                },
+                                {
+                                    "state_name" : "let_em_go",
+                                    "key_input" : "B"
+                                }
+                            ]
+        },
+        "take_em_stim":
+        {
+            "next_state" : ["take_em"],
+            "stim_change": 10,
+            "honor_level" : 1 
+            
+        },
+        "take_em":
+        {
+            "text": "You take em"
+        }
+    }
+}
