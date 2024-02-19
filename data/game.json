@@ -5,28 +5,78 @@
     {
         "start" : 
         {
-            "text" : "You finally come accross the one and only Quickdraw Cassidy... <br> Back in his day Cassidy has won every standoff and avoided the law for the past 10 years... <br> Nowadyas he spends his days hiding his identity at saloons and drink his sorrows away. The look in his eyes tell you that he know why you're here, but he isn't resisting, he simply finishes his whiskey. <br> Do you take em in? <br> A = YES B = NO",
+            "text" : "A = START BOUNTY HUNTIN' B = VIEW MISSIONS",
             "next_state" : [
                                 {
-                                    "state_name": "take_em_stim",
+                                    "state_name": "see_sherriff",
                                     "key_input" : "A"
                                 },
                                 {
-                                    "state_name" : "let_em_go",
+                                    "state_name" : "view_missions",
                                     "key_input" : "B"
                                 }
                             ]
         },
+        "view_missions":
+        {
+            "text": "CURRENT MISSON <br> Help Dutch earn enough $$$ to go to Tahiti for the freedom of your gang. <br> GOAL = $150,000 <br> A = SEARCH B = MAIN MENU",
+            "next_state":
+            [
+                {
+                    "state_name" : "encounter",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "start",
+                    "key_input": "B"
+                }        
+            ]
+        },
+        "see_sherriff":
+        {
+            "text": "You meet with the town sherriff and he shows you the wanted posters... <br> A = SEARCH B = MAIN MENU",
+            "next_state" : [    
+                                {
+                                    "state_name" : "encounter",
+                                    "key_input": "A"
+                                },
+                                {
+                                    "state_name": "start",
+                                    "key_input": "B"
+                                }           
+                            ]
+         },
+        "encounter":
+        {
+            "text": "You finally come accross your target... <br> The one and only Quickdraw Cassidy... <br> Back in his day Cassidy has won every standoff and avoided the law for the past 10 years... <br> Nowadyas he spends his days hiding his identity at saloons and drink his sorrows away. The look in his eyes tell you that he know why you're here, but he isn't resisting, he simply finishes his whiskey. <br> Do you take em in? <br> A = YES B = NO",
+            "next_state":
+            [
+                {
+                    "state_name" : "take_em_stim",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "leave_em",
+                    "key_input": "B"
+                }
+            ]
+        },
         "take_em_stim":
         {
-            "next_state" : ["take_em"],
+            "next_state": ["take_em"],
             "stim_change": 10,
-            "honor_level" : 1 
-            
+            "honor_level": 1,
+            "image_change": "<img src= \"images/honor.png\">"
         },
         "take_em":
         {
-            "text": "You take em"
+            "text": "You take em in... <br> Time to collect bounty.",
+            "next_state": "collect_bounty",
+            "stim_change": 1
+        },
+        "leave_em_dope":
+        {
+            "next_state": "leave_em"
         }
     }
 }
