@@ -5,7 +5,7 @@
     {
         "start" : 
         {
-            "text" : "A = START BOUNTY HUNTIN' B = VIEW MISSIONS",
+            "text" : "A = START BOUNTY HUNTIN' <br> B = VIEW MISSIONS",
             "next_state" : [
                                 {
                                     "state_name": "see_sherriff",
@@ -19,7 +19,7 @@
         },
         "view_missions":
         {
-            "text": "CURRENT MISSON <br> Help Dutch earn enough $$$ to go to Tahiti for the freedom of your gang. <br> GOAL = $150,000 <br> A = SEARCH B = MAIN MENU",
+            "text": "CURRENT MISSON <br> Help Dutch earn enough $$$ to go to Tahiti for the freedom of your gang. <br> GOAL = $150,000 <br> A = SEARCH <br> B = MAIN MENU",
             "next_state":
             [
                 {
@@ -34,7 +34,7 @@
         },
         "see_sherriff":
         {
-            "text": "You meet with the town sherriff and he shows you the wanted posters... <br> A = SEARCH B = MAIN MENU",
+            "text": "You meet with the town sherriff and he shows you the wanted posters... <br> A = SEARCH <br> B = MAIN MENU",
             "next_state" : [    
                                 {
                                     "state_name" : "encounter",

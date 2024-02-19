@@ -36,7 +36,7 @@
     <body>
         <h1 style="color: red;font-size: 100px; text-align: center; font: gunfont;"> BOUNTY HUNTIN' </h1>
         <div id = "main" style = "display:none">
-            <div id = "game_text" style = "font-size: 100px; color: white; text-align: center"</div>
+            <div id = "game_text" style = "font-size: 50px; color: white; text-align: center"</div>
                 <div id = "game_img"></div>
                 
         <!--making buttons-->
@@ -44,7 +44,7 @@
         <button id = "but_a" onclick="key_input('A')">B</button>
 
         <div id = "splash" style = "font-size: 50px; text-align: center;"> Loading... <br>
-        <img align="center" src="images/arthur_ms.gif" >
+        <img src="images/arthur_ms.gif" >
         </div>
 
         <script>
@@ -56,10 +56,13 @@
 
         setTimeout(function(){
             $('#splash').hide();
-            setTimeout(function(){
-                $('#main').show();
-            },3000);
-        }, 3000);
+            $('#splashy').show();
+                setTimeout(function(){
+                        $('#splashy').hide();
+                        $('#main').show();
+                    },3000);
+
+            }, 3000);
 
         $.getJSON( "data/game.json", function( data ) {
         game_data = data;
@@ -80,7 +83,7 @@
         }
         if (game_data['states'][ current_state ]['point_change'] != null){
             console.log("+ point " + game_data['states'][ current_state ]['stim_change'] ) 
-            points = points + game_data['states'][ current_state ]['point_change']
+            honor = honor + game_data['states'][ current_state ]['point_change']
         }
         if (game_data['states'][ current_state ]['image_change'] != null){
             $("#game_img").html( game_data['states'][ current_state ]['image_change'] );
