@@ -44,7 +44,8 @@
                                     "state_name": "start",
                                     "key_input": "B"
                                 }           
-                            ]
+                            ],
+            "image_change": "<img src= \"images/sherrif_pixelart.png\">"
          },
         "encounter":
         {
@@ -61,10 +62,10 @@
                 }
             ]
         },
-        "take_em_stim":
+        "take_em_dope":
         {
             "next_state": ["take_em"],
-            "stim_change": 10,
+            "dope_change": 10,
             "honor_level": 1,
             "image_change": "<img src= \"images/honor.png\">"
         },
@@ -74,9 +75,18 @@
             "next_state": "collect_bounty",
             "stim_change": 1
         },
-        "leave_em_dope":
+        "leave_em_stim":
         {
-            "next_state": "leave_em"
+            "next_state": ["leave_em"],
+            "stim_change": 10,
+            "honor_level": -1,
+            "image_change":"<img src= \"images/dishonor.png\">"
+        },
+        "leave_em":
+        {
+            "text": "You let em go... <br> You lost honor due to disregarding the law.",
+            "next_state": "start",
+            "stim_change": 1
         }
     }
 }
