@@ -5,7 +5,7 @@
         <title id="title">BOUNTY HUNTIN'</title>
         <link rel="shortcut icon" type="image/jpg" href="C:\Users\jacqu\CS485CUOA\chooseurownadventuregame\arthur.jpg"/>
         <style> 
-            @font-face 
+            font-face 
             {
                 font-family: gunfont;
                 src: url("C:\Users\jacqu\CS485CUOA\chooseurownadventuregame\gunslinger-font.zip");
@@ -19,8 +19,8 @@
                 background-color: black;
             }
 
-            /*
-            .button {
+            
+            button {
                 background-color: red; 
                 border: none;
                 color: white;
@@ -30,7 +30,16 @@
                 display: inline-block;
                 font-size: 16px;
             }
-            */
+
+            center {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+
         </style>
         
     </head>
@@ -38,12 +47,14 @@
     <body>
         <h1 style="color: red;font-size: 100px; text-align: center; font: gunfont;"> BOUNTY HUNTIN' </h1>
         <div id = "main" style = "display:none">
-            <div id = "game_text" style = "font-size: 50px; color: white; text-align: center"></div>
+            <div id = "game_text" style = "font-size: 25px; color: white; text-align: center"></div>
                 <div id = "game_img"></div>
                 
         <!--making buttons-->
-        <button id = "but_a" onclick="key_input('A')" style = "font-size: 50px;">A</button>
+        <div class = "center">
+        <button id = "but_a" onclick="key_input('A')" style = "font-size: 50px; ">A</button>
         <button id = "but_b" onclick="key_input('B')" style = "font-size: 50px;">B</button>
+        </div>
 
         <div id = "splash" style = "font-size: 50px; text-align: center; color: white;"> Loading... <br>
         <img src="images/arthur_ms.gif" >
