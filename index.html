@@ -19,6 +19,7 @@
                 background-color: black;
             }
 
+            /*
             .button {
                 background-color: red; 
                 border: none;
@@ -28,7 +29,8 @@
                 text-decoration: none;
                 display: inline-block;
                 font-size: 16px;
-}
+            }
+            */
         </style>
         
     </head>
@@ -36,14 +38,14 @@
     <body>
         <h1 style="color: red;font-size: 100px; text-align: center; font: gunfont;"> BOUNTY HUNTIN' </h1>
         <div id = "main" style = "display:none">
-            <div id = "game_text" style = "font-size: 50px; color: white; text-align: center"</div>
+            <div id = "game_text" style = "font-size: 50px; color: white; text-align: center"></div>
                 <div id = "game_img"></div>
                 
         <!--making buttons-->
-        <button id = "but_a" onclick="key_input('A')">A</button>
-        <button id = "but_a" onclick="key_input('A')">B</button>
+        <button id = "but_a" onclick="key_input('A')" style = "font-size: 50px;">A</button>
+        <button id = "but_b" onclick="key_input('B')" style = "font-size: 50px;">B</button>
 
-        <div id = "splash" style = "font-size: 50px; text-align: center;"> Loading... <br>
+        <div id = "splash" style = "font-size: 50px; text-align: center; color: white;"> Loading... <br>
         <img src="images/arthur_ms.gif" >
         </div>
 
@@ -56,18 +58,16 @@
 
         setTimeout(function(){
             $('#splash').hide();
-            $('#splashy').show();
                 setTimeout(function(){
-                        $('#splashy').hide();
                         $('#main').show();
                     },3000);
-
             }, 3000);
 
-        $.getJSON( "data/game.json", function( data ) {
-        game_data = data;
-        current_state = data['start_state'];
-        $('#game_text').html( game_data['states'][ data['start_state'] ]['text'] ); 
+        $.getJSON( "data/game.json", function( data ) 
+        {
+            game_data = data;
+            current_state = data['start_state'];
+            $('#game_text').html( game_data['states'][ data['start_state'] ]['text'] ); 
         });
 
         function next_state( state) {
@@ -97,6 +97,11 @@
         next_state( game_data['states'][ current_state ]['next_state']) 
     }
     }
+
+    function pick_a_winner( input_array ) 
+    {
+        return  input_array[(Math.floor(Math.random() * input_array.length))];
+    }  
 
     function key_input(what_key){
     for(i=0; i< game_data['states'][current_state]['next_state'].length; i++){
