@@ -34,14 +34,14 @@
         },
         "see_sherriff":
         {
-            "text": "You meet with the town sherriff and he shows you the wanted posters... <br> A = SEARCH <br> B = MAIN MENU",
+            "text": "You meet with the town sherriff and he shows you the wanted posters... <br> Hunt for... <br> A = OUTLAW 1 <br> B = OUTLAW 2",
             "next_state" : [    
                                 {
                                     "state_name" : "encounter",
                                     "key_input": "A"
                                 },
                                 {
-                                    "state_name": "start",
+                                    "state_name": "encounter_2",
                                     "key_input": "B"
                                 }           
                             ],
@@ -49,15 +49,30 @@
          },
         "encounter":
         {
-            "text": "You finally come accross your target... <br> The one and only Quickdraw Cassidy... <br> Back in his day Cassidy has won every standoff and avoided the law for the past 10 years... <br> Nowadyas he spends his days hiding his identity at saloons and drink his sorrows away. The look in his eyes tell you that he know why you're here, but he isn't resisting, he simply finishes his whiskey. <br> Do you take em in? <br> A = YES B = NO",
+            "text": "You finally come accross your target... <br> WANTED DEAD OR ALIVE $500 <br> Quickdraw Cassidy... <br> Back in his day Cassidy has won every standoff and avoided the law for the past 10 years... <br> Nowadyas he spends his days hiding his identity at saloons and drink his sorrows away. <br> The look in his eyes tell you that he know why you're here, but he isn't resisting, he simply finishes his whiskey. <br> Do you take em in? <br> A = YES B = NO",
             "next_state":
             [
                 {
-                    "state_name" : "take_em_stim",
+                    "state_name" : "take_em_dope",
                     "key_input": "A"
                 },
                 {
-                    "state_name": "leave_em",
+                    "state_name": "leave_em_stim",
+                    "key_input": "B"
+                }
+            ]
+        },
+        "encounter_2":
+        {
+            "text": "You finally come accross your target... <br> WANTED DEAD OR ALIVE $1,000 <br> Debbie, Black Widow, Jellinsky... <br> A serial killer and widow. Constantly changing her identity, Debbie marries rich Bachelor's only to take their fortune after killing them. <br> Debbie doesn't notice you at the saloon... <br> Do you take em in? <br> A = YES B = NO",
+            "next_state":
+            [
+                {
+                    "state_name" : "take_em_dope",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "leave_em_stim",
                     "key_input": "B"
                 }
             ]
