@@ -86,9 +86,25 @@
         },
         "take_em":
         {
-            "text": "You take em in... <br> Time to collect bounty.",
+            "text": "You take em in... <br> Time to collect bounty. <br> A = COLLECT BOUNTY <br> B = COLLECT BOUNTY",
             "next_state": "collect_bounty",
             "stim_change": 1
+        },
+        "collect_bounty":
+        {
+            "text": "Sherriff: Throw em in the cell, I'll handle the rest. <br> Here for your trouble. <br> Sherriff hands you the reward <br> A = HEAD TO CAMP B = MAIN MENU",
+            "cash": 700,
+            "next_state":
+            [
+                {
+                    "state_name" : "head_to_camp",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "start",
+                    "key_input": "B"
+                }
+            ]
         },
         "leave_em_stim":
         {
@@ -99,9 +115,73 @@
         },
         "leave_em":
         {
-            "text": "You let em go... <br> You lost honor due to disregarding the law.",
-            "next_state": "start",
+            "text": "You let em go... <br> You lost honor due to disregarding the law. <br> A = HEAD TO CAMP B = MAIN MENU",
+            "next_state":
+            [
+                {
+                    "state_name" : "head_to_camp",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "start",
+                    "key_input": "B"
+                }
+            ]
+            ,
             "stim_change": 1
+        },
+        "head_to_camp":
+        {
+            "text": "You come accross a split road... <br> Both lead to camp. <br> which route do you take? <br> A = LEFT B = RIGHT",
+            "next_state":
+            [
+                {
+                    "state_name" : "left_path",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "right_path",
+                    "key_input": "B"
+                }
+            ]
+        },
+        "left_path":
+        {
+            "text": "On your way... <br> You see a man come out of a bush, he's in chains and looks like he's escaped Jail. <br> Escaped convict: MISTER, am I glad to see you! You see I'm in a bit of a pickle, would you shoot these chains off me? A = HELP B = IGNORE",
+            "next_state":
+            [
+                {
+                    "state_name" : "help",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "ignore",
+                    "key_input": "B"
+                }
+            ]
+        },
+        "right_path":
+        {
+            "text": "On your way... <br> You see a woman run up to you. <br> MISTER MISTER YOU HAVE TO HELP ME! <br> You see I'm lost and I can't find my way back into town. Please help me out. <br> A = HELP B = IGNORE",
+            "next_state":
+            [
+                {
+                    "state_name" : "help",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "ignore",
+                    "key_input": "B"
+                }
+            ]
+        },
+        "help":
+        {
+            "text": "You helped em :)"
+        },
+        "ignore":
+        {
+            "text": "You ignored em."
         }
     }
 }
