@@ -87,7 +87,17 @@
         "take_em":
         {
             "text": "You take em in... <br> Time to collect bounty. <br> A = COLLECT BOUNTY <br> B = COLLECT BOUNTY",
-            "next_state": "collect_bounty",
+            "next_state":
+            [
+                {
+                    "state_name" : "collect_bounty",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "collect_bounty",
+                    "key_input": "B"
+                }
+            ],
             "stim_change": 1
         },
         "collect_bounty":
@@ -147,7 +157,7 @@
         },
         "left_path":
         {
-            "text": "On your way... <br> You see a man come out of a bush, he's in chains and looks like he's escaped Jail. <br> Escaped convict: MISTER, am I glad to see you! You see I'm in a bit of a pickle, would you shoot these chains off me? A = HELP B = IGNORE",
+            "text": "On your way... <br> You see a man come out of a bush, he's in chains and looks like he's escaped Jail. <br> Escaped convict: MISTER, am I glad to see you! You see I'm in a bit of a pickle, would you shoot these chains off me? <br> A = HELP B = IGNORE",
             "next_state":
             [
                 {
