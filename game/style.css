@@ -1,5 +1,19 @@
-@font-face {
+@font-face 
+{
     font-family: 'Gunslinger'; /* Choose a name for your font */
     src: url('C:\Users\jacqu\CS485CUOA\chooseurownadventuregame\game\Gunslinger-nZaY.ttf') format('ttf'),
          url('C:\Users\jacqu\CS485CUOA\chooseurownadventuregame\game\Gunslinger-nZaY.ttf') format('ttf');
-  }
+         font-weight: normal;
+         font-style: normal;
+}
+
+#newfont
+{
+    font-family: 'Gunslinger';
+}
+
+body
+{
+    font-family: 'Gunslinger', sans-serif;
+    background-color: black;
+}
