@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'YourFontName'; /* Choose a name for your font */
-    src: url('/path/to/your/font-file.woff2') format('woff2'),
-         url('/path/to/your/font-file.woff') format('woff');
+    font-family: 'Gunslinger'; /* Choose a name for your font */
+    src: url('C:\Users\jacqu\CS485CUOA\chooseurownadventuregame\game\Gunslinger-nZaY.ttf') format('ttf'),
+         url('C:\Users\jacqu\CS485CUOA\chooseurownadventuregame\game\Gunslinger-nZaY.ttf') format('ttf');
   }
