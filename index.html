@@ -12,7 +12,7 @@
                     font-weight: normal;
                     font-style: normal;
                 } 
-                h1 
+            h1 
                 {
                     font-family: Gunslinger;
                     font-size: 100px;
@@ -28,8 +28,12 @@
         <div id = "game_text" style = "font-size: 50px; color: white; text-align: center;"></div>
         <div id = "game_img"></div>
                 
-        <button id="but_a" onclick="key_input('A');" style="font-size:100px">A</button>
-        <button id="but_b" onclick="key_input('B');" style="font-size:100px">B</button>
+        <button id="but_a" onclick="key_input('A');" style="font-size:50px">A</button>
+        <button id="but_b" onclick="key_input('B');" style="font-size:50px">B</button>
+        </div>
+
+        <div id = "splash" style = "font-size: 50px; text-align: center; color: white;"> Loading... <br>
+            <img src="images/arthur_ms.gif" >
         </div>
 
         <script>
@@ -37,56 +41,60 @@
             var current_state;
             var stim = 0;
             var honor = 0;  
-
-        $.getJSON( "data/game.json", function( data ) 
-        {
-            game_data = data;
-            current_state = data['start_state'];
-            $('#game_text').html( game_data['states'][ data['start_state'] ]['text'] ); 
-        });
-
-        function next_state( state) {
-    console.log("Current State = " + current_state + " --> New State= " + state) 
-    current_state = state
-    if (game_data['states'][ current_state ]['text'] != null){
-        $('#game_text').html( game_data['states'][ current_state ]['text'] );
-    } else {
-        console.log("no text");
-        if (game_data['states'][ current_state ]['stim_change'] != null){
-            console.log("+ stim " + game_data['states'][ current_state ]['stim_change'] ) 
-            stim = stim + game_data['states'][ current_state ]['stim_change']
-        }
-        if (game_data['states'][ current_state ]['point_change'] != null){
-            console.log("+ point " + game_data['states'][ current_state ]['stim_change'] ) 
-            honor = honor + game_data['states'][ current_state ]['point_change']
-        }
-        if (game_data['states'][ current_state ]['image_change'] != null){
-            $("#game_img").html( game_data['states'][ current_state ]['image_change'] );
-        }
-        if (game_data['states'][ current_state ]['show_button'] != null){
-            console.log('111');
-            console.log(game_data['states'][ current_state ]['show_button'])
-            $("#but_" + game_data['states'][ current_state ]['show_button']).show();
-        }
-        next_state( game_data['states'][ current_state ]['next_state']) 
-    }
-    }
-    function pick_a_winner( input_array ) 
-    {
-        return  input_array[(Math.floor(Math.random() * input_array.length))];
-    }  
-    function key_input(what_key){
-    for(i=0; i< game_data['states'][current_state]['next_state'].length; i++){
-        if( what_key == game_data['states'][current_state]['next_state'][i]['key_input']) {
-            if ( typeof game_data['states'][current_state]['next_state'][i]['state_name'] == "string"){
-                next_state(game_data['states'][current_state]['next_state'][i]['state_name'])
-            }else{
-                next_state(pick_a_winner(game_data['states'][current_state]['next_state'][i]['state_name']) )
+            setTimeout(function(){
+                $('#splash').hide();
+                    setTimeout(function(){
+                            $('#main').show();
+                        },3000);
+                }, 3000);
+            $.getJSON( "data/game.json", function( data ) 
+            {
+                game_data = data;
+                current_state = data['start_state'];
+                $('#game_text').html( game_data['states'][ data['start_state'] ]['text'] ); 
+            });
+            function next_state( state) {
+        console.log("Current State = " + current_state + " --> New State= " + state) 
+        current_state = state
+        if (game_data['states'][ current_state ]['text'] != null){
+            $('#game_text').html( game_data['states'][ current_state ]['text'] );
+        } else {
+            console.log("no text");
+            if (game_data['states'][ current_state ]['stim_change'] != null){
+                console.log("+ stim " + game_data['states'][ current_state ]['stim_change'] ) 
+                stim = stim + game_data['states'][ current_state ]['stim_change']
             }
-        } 
+            if (game_data['states'][ current_state ]['point_change'] != null){
+                console.log("+ point " + game_data['states'][ current_state ]['stim_change'] ) 
+                honor = honor + game_data['states'][ current_state ]['point_change']
+            }
+            if (game_data['states'][ current_state ]['image_change'] != null){
+                $("#game_img").html( game_data['states'][ current_state ]['image_change'] );
+            }
+            if (game_data['states'][ current_state ]['show_button'] != null){
+                console.log('111');
+                console.log(game_data['states'][ current_state ]['show_button'])
+                $("#but_" + game_data['states'][ current_state ]['show_button']).show();
+            }
+            next_state( game_data['states'][ current_state ]['next_state']) 
+        }
+        }
+        function pick_a_winner( input_array ) 
+        {
+            return  input_array[(Math.floor(Math.random() * input_array.length))];
+        }  
+        function key_input(what_key){
+        for(i=0; i< game_data['states'][current_state]['next_state'].length; i++){
+            if( what_key == game_data['states'][current_state]['next_state'][i]['key_input']) {
+                if ( typeof game_data['states'][current_state]['next_state'][i]['state_name'] == "string"){
+                    next_state(game_data['states'][current_state]['next_state'][i]['state_name'])
+                }else{
+                    next_state(pick_a_winner(game_data['states'][current_state]['next_state'][i]['state_name']) )
+                }
+            } 
+        }
+        console.log(what_key);
     }
-    console.log(what_key);
-}
-        </script>
-    </body>
-</html>
+            </script>
+        </body>
+    </html>
