@@ -36,23 +36,20 @@
         <script>
             var game_data;
             var current_state;
-
             var stim = 0;
-            var points = 0;
- 
-            $.getJSON( "data/game.json", function( data )
-            {
-                game_data = data;
-                current_state = data['start_state'];
-                $('#game_text').html( game_data['states'][ data['start_state'] ]['text'] ); 
-            });
+            var honor = 0;  
 
-            function next_state( state) {
-            console.log("Current State = " + current_state + " --> New State= " + state) 
-            current_state = state
-            }
+            $.getJSON( "data/game.json", function( data ) 
+        {
+            game_data = data;
+            current_state = data['start_state'];
+            $('#game_text').html( game_data['states'][ data['start_state'] ]['text'] ); 
+        });
 
-            if (game_data['states'][ current_state ]['text'] != null){
+        function next_state( state) {
+    console.log("Current State = " + current_state + " --> New State= " + state) 
+    current_state = state
+    if (game_data['states'][ current_state ]['text'] != null){
         $('#game_text').html( game_data['states'][ current_state ]['text'] );
     } else {
         console.log("no text");
@@ -62,37 +59,24 @@
         }
         if (game_data['states'][ current_state ]['point_change'] != null){
             console.log("+ point " + game_data['states'][ current_state ]['stim_change'] ) 
-            points = points + game_data['states'][ current_state ]['point_change']
+            honor = honor + game_data['states'][ current_state ]['point_change']
         }
         if (game_data['states'][ current_state ]['image_change'] != null){
             $("#game_img").html( game_data['states'][ current_state ]['image_change'] );
         }
         if (game_data['states'][ current_state ]['show_button'] != null){
+            console.log('111');
             console.log(game_data['states'][ current_state ]['show_button'])
             $("#but_" + game_data['states'][ current_state ]['show_button']).show();
         }
-        if (game_data['states'][ current_state ]['restart_cmd'] != null){
-            location.reload();
-        }
-
-        if (game_data['states'][ current_state ]['delay'] == null){
-            next_state( game_data['states'][ current_state ]['next_state']) 
-        }else{
-            if (game_data['states'][ current_state ]['show_text'] != null){
-                $('#game_text').html( game_data['states'][ current_state ]['show_text'])
-            }
-            setTimeout(function() {
-                    next_state( game_data['states'][ current_state ]['next_state']) 
-                        }, game_data['states'][ current_state ]['delay']);
-        }
+        next_state( game_data['states'][ current_state ]['next_state']) 
     }
-
-
-function pick_a_winner( input_array ) {
-   return  input_array[(Math.floor(Math.random() * input_array.length))];
-}
-
-function key_input(what_key){
+    }
+    function pick_a_winner( input_array ) 
+    {
+        return  input_array[(Math.floor(Math.random() * input_array.length))];
+    }  
+    function key_input(what_key){
     for(i=0; i< game_data['states'][current_state]['next_state'].length; i++){
         if( what_key == game_data['states'][current_state]['next_state'][i]['key_input']) {
             if ( typeof game_data['states'][current_state]['next_state'][i]['state_name'] == "string"){
@@ -102,9 +86,8 @@ function key_input(what_key){
             }
         } 
     }
-
     console.log(what_key);
 }
-</script>
-</body>
+        </script>
+    </body>
 </html>

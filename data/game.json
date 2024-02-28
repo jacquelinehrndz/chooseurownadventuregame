@@ -50,7 +50,7 @@
          },
         "encounter":
         {
-            "text": "You finally come accross your target... <br> WANTED DEAD OR ALIVE $500 <br> Quickdraw Cassidy... <br> Back in his day Cassidy has won every standoff and avoided the law for the past 10 years... <br> Nowadyas he spends his days hiding his identity at saloons and drink his sorrows away. <br> The look in his eyes tell you that he know why you're here, but he isn't resisting, he simply finishes his whiskey. <br> Do you take em in? <br> A = YES <br> B = NO",
+            "text": "You finally come accross your target... <br> WANTED DEAD OR ALIVE $500 <br> Quickdraw Cassidy... <br> Back in his day Cassidy has won every standoff and avoided the law for the past 10 years... <br> Nowadays he spends his days hiding his identity at saloons and drink his sorrows away. <br> The look in his eyes tell you that he know why you're here, but he isn't resisting, he simply finishes his whiskey. <br> Do you take em in? <br> A = YES <br> B = NO",
             "next_state":
             [
                 {
