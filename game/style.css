@@ -1,7 +1,7 @@
 @font-face 
 {
     font-family: 'Gunslinger'; /* Choose a name for your font */
-    src: url('C:\Users\jacqu\CS485CUOA\chooseurownadventuregame\game\Gunslinger-nZaY.ttf') format('ttf'),
+    src: url('C:\Users\jacqu\CS485CUOA\chooseurownadventuregame\game\Gunslinger-nZaY.ttf') format('truetype'),
          url('C:\Users\jacqu\CS485CUOA\chooseurownadventuregame\game\Gunslinger-nZaY.ttf') format('ttf');
          font-weight: normal;
          font-style: normal;
@@ -12,8 +12,26 @@
     font-family: 'Gunslinger';
 }
 
-body
+.header {
+    font-family: 'Gunslinger';
+    padding: 60px;
+    text-align: center;
+    background: black;
+    color: red;
+    font-size: 100px;
+  }
+
+.body
 {
     font-family: 'Gunslinger', sans-serif;
+    text-align: center;
+    padding: auto;
     background-color: black;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
