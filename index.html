@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src = "https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <title id="title">BOUNTY HUNTIN'</title>
         <link rel="shortcut icon" type="image/jpg" href="imgs/arthur.jpg"/>
         <style>
@@ -19,14 +19,13 @@
                     text-align: center;
                     color: red;
                 }
-        </style>
-        
+        </style> 
     </head>
 
     <body style = "background-color: black;">
         <h1> BOUNTY HUNTIN' </h1>
         <div id = "main" style = "display:none">
-        <div id = "game_text" style = "font-size: 100px; color: white; text-align: center"></div>
+        <div id = "game_text" style = "font-size: 50px; color: white; text-align: center;"></div>
         <div id = "game_img"></div>
                 
         <button id="but_a" onclick="key_input('A');" style="font-size:100px">A</button>
@@ -39,7 +38,7 @@
             var stim = 0;
             var honor = 0;  
 
-            $.getJSON( "data/game.json", function( data ) 
+        $.getJSON( "data/game.json", function( data ) 
         {
             game_data = data;
             current_state = data['start_state'];

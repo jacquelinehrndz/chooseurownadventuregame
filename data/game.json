@@ -99,7 +99,8 @@
                     "key_input": "B"
                 }
             ],
-            "dope_change": 1
+            "dope_change": 1,
+            "image_change": "<img src= \"images/honor.png\">"
         },
         "collect_bounty":
         {
@@ -173,7 +174,7 @@
         },
         "right_path":
         {
-            "text": "On your way... <br> You see a woman run up to you. <br> MISTER MISTER YOU HAVE TO HELP ME! <br> You see I'm lost and I can't find my way back into town. Please help me out. <br> A = HELP B = IGNORE",
+            "text": "On your way... <br> You see a woman run up to you. <br> MISTER MISTER YOU HAVE TO HELP ME! <br> You see I'm lost and I can't find my way back into town. Please help me out. <br> A = HELP <br> B = IGNORE",
             "next_state":
             [
                 {
@@ -188,11 +189,79 @@
         },
         "help":
         {
-            "text": "You helped em! "
+            "text": "You helped em! <br> You recieved honor for your good deed :) Head to camp? <br> A & B = CAMP",
+            "next_state":
+            [
+                {
+                    "state_name": "at_camp_good",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "at_camp_good",
+                    "key_input": "B"
+                }
+            ],
+            "image_change": "<img src= \"images/honor.png\">"
+        },
+        "help_bad":
+        {
+            "text": "GAME OVER <br> The young woman took advantage of your kindness, she shoots and robs you. You're cooked <br> A & B = MAIN MENU",
+            "next_state":
+            [
+                {
+                    "state_name": "start",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "start",
+                    "key_input": "B"
+                }
+            ]
         },
         "ignore":
         {
-            "text": "You ignored em."
+            "text": "You ignored em. <br> No change to your honor, head to camp? <br> A & B = CAMP",
+            "next_state": 
+            [
+                {
+                    "state_name": "at_camp_neutral",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "at_camp_neutral",
+                    "key_input": "B"
+                }
+            ]
+        },
+        "at_camp_good": 
+        {
+            "text": "HIGH HONOR ENDING <br> You're a good man Arthur Morgan <br> A & B = MAIN MENU",
+            "next_state":
+            [
+                {
+                    "state_name": "start",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "start",
+                    "key_input": "B"
+                }
+            ]
+        },
+        "at_camp_neutral":
+        {
+            "text": "NEUTRAL ENDING <br> You're a decent man Arthur Morgan <br> A & B = MAIN MENU",
+            "next_state":
+            [
+                {
+                    "state_name": "start",
+                    "key_input": "A"
+                },
+                {
+                    "state_name": "start",
+                    "key_input": "B"
+                }
+            ]
         }
     }
 }
