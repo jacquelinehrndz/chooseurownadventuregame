@@ -29,9 +29,6 @@
         transform: translate(-50%, -50%);">B</button>
         </div>
 
-        <div id = "splash" style = "font-size: 100px; text-align: center; color: white; display:none"> Loading... <br>
-        <img src="images/arthur_ms.gif" >
-        </div>
 
         <script>
         var game_data;
@@ -39,16 +36,6 @@
 
         var stim = 0;
         var honor = 0;  
-
-        setTimeout(function(){
-            $('#splash').hide();
-            $('#splashy').show();
-                setTimeout(function(){
-                        $('#splashy').hide();
-                        $('#main').show();
-                    },3000);
-
-            }, 3000);
 
         $.getJSON( "data/game.json", function( data ) 
         {
