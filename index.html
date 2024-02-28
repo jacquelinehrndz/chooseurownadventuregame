@@ -26,8 +26,8 @@
     <body style = "background-color: black;">
         <h1> BOUNTY HUNTIN' </h1>
         <div id = "main" style = "display:none">
-            <div id = "game_text" style = "font-size: 25px; color: white; text-align: center"></div>
-                <div id = "game_images"></div>
+        <div id = "game_text" style = "font-size: 25px; color: white; text-align: center"></div>
+        <div id = "game_img"></div>
                 
         <button id = "but_a" onclick="key_input('A')" style = "font-size: 50px;">A</button>
         <button id = "but_b" onclick="key_input('B')" style = "font-size: 50px;">B</button>
@@ -35,25 +35,27 @@
 
 
         <script>
-        var game_data;
-        var current_state;
+            var game_data;
+            var current_state;
 
-        var stim = 0;
-        var honor = 0;  
+            var stim = 0;
+            var points = 0;
+ 
+            $.getJSON( "data/game.json", function( data )
+            {
+                game_data = data;
+                current_state = data['start_state'];
+                $('#game_text').html( game_data['states'][ data['start_state'] ]['text'] ); 
+            });
 
-        $.getJSON( "data/game.json", function( data ) 
-        {
-            game_data = data;
-            current_state = data['start_state'];
-            $('#game_text').html( game_data['states'][ data['start_state'] ]['text'] ); 
-        });
-
-        function next_state( state) {
+            function next_state( state) {
             console.log("Current State = " + current_state + " --> New State= " + state) 
             current_state = state
+            }
+
             if (game_data['states'][ current_state ]['text'] != null){
-             $('#game_text').html( game_data['states'][ current_state ]['text'] );
-        } else {
+        $('#game_text').html( game_data['states'][ current_state ]['text'] );
+    } else {
         console.log("no text");
         if (game_data['states'][ current_state ]['stim_change'] != null){
             console.log("+ stim " + game_data['states'][ current_state ]['stim_change'] ) 
@@ -61,22 +63,37 @@
         }
         if (game_data['states'][ current_state ]['point_change'] != null){
             console.log("+ point " + game_data['states'][ current_state ]['stim_change'] ) 
-            honor = honor + game_data['states'][ current_state ]['point_change']
+            points = points + game_data['states'][ current_state ]['point_change']
         }
         if (game_data['states'][ current_state ]['image_change'] != null){
             $("#game_img").html( game_data['states'][ current_state ]['image_change'] );
         }
         if (game_data['states'][ current_state ]['show_button'] != null){
-            console.log('111');
             console.log(game_data['states'][ current_state ]['show_button'])
             $("#but_" + game_data['states'][ current_state ]['show_button']).show();
         }
+        if (game_data['states'][ current_state ]['restart_cmd'] != null){
+            location.reload();
+        }
 
-        next_state( game_data['states'][ current_state ]['next_state']) 
-    }
+        if (game_data['states'][ current_state ]['delay'] == null){
+            next_state( game_data['states'][ current_state ]['next_state']) 
+        }else{
+            if (game_data['states'][ current_state ]['show_text'] != null){
+                $('#game_text').html( game_data['states'][ current_state ]['show_text'])
+            }
+            setTimeout(function() {
+                    next_state( game_data['states'][ current_state ]['next_state']) 
+                        }, game_data['states'][ current_state ]['delay']);
+        }
     }
 
-    function key_input(what_key){
+
+function pick_a_winner( input_array ) {
+   return  input_array[(Math.floor(Math.random() * input_array.length))];
+}
+
+function key_input(what_key){
     for(i=0; i< game_data['states'][current_state]['next_state'].length; i++){
         if( what_key == game_data['states'][current_state]['next_state'][i]['key_input']) {
             if ( typeof game_data['states'][current_state]['next_state'][i]['state_name'] == "string"){
@@ -89,8 +106,6 @@
 
     console.log(what_key);
 }
-
-        </script>
-
-    </body>
+</script>
+</body>
 </html>
