@@ -15,7 +15,8 @@
                                     "state_name" : "view_missions",
                                     "key_input" : "B"
                                 }
-                            ]
+                            ],
+            "image_change" : "<img src=\"imgs/arthur.jpg\">"
         },
         "view_missions":
         {
