@@ -46,7 +46,7 @@
                                     "key_input": "B"
                                 }           
                             ],
-            "image_change": "<img src= \"images/sherrif_pixelart.png\">"
+            "image_change": "<img src= \"imgs/sherrif_pixelart.png\">"
          },
         "encounter":
         {
@@ -83,7 +83,7 @@
             "next_state": ["take_em"],
             "dope_change": 10,
             "honor_level": 1,
-            "image_change": "<img src= \"images/honor.png\">"
+            "image_change": "<img src= \"imgs/honor.png\">"
         },
         "take_em":
         {
@@ -100,7 +100,7 @@
                 }
             ],
             "dope_change": 1,
-            "image_change": "<img src= \"images/honor.png\">"
+            "image_change": "<img src= \"imgs/honor.png\">"
         },
         "collect_bounty":
         {
@@ -140,7 +140,7 @@
             ]
             ,
             "stim_change": 1,
-            "image_change":"<img src= \"images/dishonor.png\">"
+            "image_change":"<img src= \"imgs/dishonor.png\">"
         },
         "head_to_camp":
         {
@@ -201,7 +201,7 @@
                     "key_input": "B"
                 }
             ],
-            "image_change": "<img src= \"images/honor.png\">"
+            "image_change": "<img src= \"imgs/honor.png\">"
         },
         "help_bad":
         {
