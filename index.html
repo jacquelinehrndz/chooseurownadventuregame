@@ -4,23 +4,36 @@
         <script src = "https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <title id="title">BOUNTY HUNTIN'</title>
         <link rel="shortcut icon" type="image/jpg" href="images/arthur.jpg"/>
-        <link href="styles/style.css" rel=".style.css" />
+        <style>
+            @font-face 
+                {
+                    font-family: 'Gunslinger'; /* Choose a name for your font */
+                    src: url(Gunslinger-nZaY.ttf);
+                    font-weight: normal;
+                    font-style: normal;
+                }
+            
+                h1 {
+                    font-family: Gunslinger;
+                    font-size: 100px;
+                    text-align: center;
+                    color: red;
+                }
+
+        </style>
+        
+         <!--   <link href="styles/style.css" rel=".style.css" />-->
     </head>
 
     <body style = "background-color: black;">
         <h1> BOUNTY HUNTIN' </h1>
         <div id = "main" style = "display:none">
-            <div id = "game_text" style = "font-size: 25px; color: white; text-align: center"></div>
+            <div id = "game_text" style = "font-size: 25px; color: white; text-align: center; font-family: Gunslinger;"></div>
                 <div id = "game_images"></div>
                 
         <!--making buttons-->
         <!-- <div class = "center"> -->
-        <button id = "but_a" onclick="key_input('A')" style = "font-size: 50px; margin: 0;
-        position: absolute;
-        top: 75%;
-        left: 35%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);">A</button>
+        <button id = "but_a" onclick="key_input('A')" style = "font-size: 50px">A</button>
         <button id = "but_b" onclick="key_input('B')" style = "font-size: 50px; margin: 0;
         position: absolute;
         top: 75%;
