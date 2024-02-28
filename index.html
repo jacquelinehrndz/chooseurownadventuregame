@@ -11,9 +11,9 @@
                     src: url(Gunslinger-nZaY.ttf);
                     font-weight: normal;
                     font-style: normal;
-                }
-            
-                h1 {
+                } 
+                h1 
+                {
                     font-family: Gunslinger;
                     font-size: 100px;
                     text-align: center;
@@ -26,7 +26,7 @@
     <body style = "background-color: black;">
         <h1> BOUNTY HUNTIN' </h1>
         <div id = "main" style = "display:none">
-            <div id = "game_text" style = "font-size: 25px; color: white; text-align: center; font-family: Gunslinger;"></div>
+            <div id = "game_text" style = "font-size: 25px; color: white; text-align: center"></div>
                 <div id = "game_images"></div>
                 
         <button id = "but_a" onclick="key_input('A')" style = "font-size: 50px;">A</button>
@@ -49,11 +49,11 @@
         });
 
         function next_state( state) {
-    console.log("Current State = " + current_state + " --> New State= " + state) 
-    current_state = state
-    if (game_data['states'][ current_state ]['text'] != null){
-        $('#game_text').html( game_data['states'][ current_state ]['text'] );
-    } else {
+            console.log("Current State = " + current_state + " --> New State= " + state) 
+            current_state = state
+            if (game_data['states'][ current_state ]['text'] != null){
+             $('#game_text').html( game_data['states'][ current_state ]['text'] );
+        } else {
         console.log("no text");
         if (game_data['states'][ current_state ]['stim_change'] != null){
             console.log("+ stim " + game_data['states'][ current_state ]['stim_change'] ) 
@@ -75,11 +75,6 @@
         next_state( game_data['states'][ current_state ]['next_state']) 
     }
     }
-
-    function pick_a_winner( input_array ) 
-    {
-        return  input_array[(Math.floor(Math.random() * input_array.length))];
-    }  
 
     function key_input(what_key){
     for(i=0; i< game_data['states'][current_state]['next_state'].length; i++){
