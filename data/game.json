@@ -104,8 +104,8 @@
         },
         "collect_bounty":
         {
-            "text": "Sherriff: Throw em in the cell, I'll handle the rest. <br> Here for your trouble. <br> Sherriff hands you the reward <br> A = HEAD TO CAMP B = MAIN MENU",
-            "cash": 700,
+            "text": "Sherriff: Throw em in the cell, I'll handle the rest. <br> Here for your trouble. <br> Sherriff hands you the reward <br> A = HEAD TO CAMP <br> B = MAIN MENU",
+            "cash": 500,
             "next_state":
             [
                 {
@@ -144,7 +144,7 @@
         },
         "head_to_camp":
         {
-            "text": "You come accross a split road... <br> Both lead to camp. <br> which route do you take? <br> A = LEFT B = RIGHT",
+            "text": "You come accross a split road... <br> Both lead to camp. <br> which route do you take? <br> A = LEFT <br> B = RIGHT",
             "next_state":
             [
                 {
